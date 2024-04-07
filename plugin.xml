@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="AxlEli2"
+            id="ReactBuilder">
+      </category>
+      <wizard
+            name="Backbone Enabled Page"
+            icon="icons/sample.gif"
+            category="ReactBuilder"
+            class="reactbuilder.wizards.backbone.BackbonePageNewWizard"
+            id="reactbuilder.wizards.backbone.BackbonePageNewWizard">
+      </wizard>
+      <wizard
+            category="ReactBuilder"
+            class="reactbuilder.wizards.site.NewBackboneSpringProjectWizard"
+            icon="icons/sample.gif"
+            id="reactbuilder.wizards.site.NewBackboneSpringProjectWizard"
+            name="Spring Boot Backbone/Angular/Vue Project Wizard"
+            project="true">
+      </wizard>
+      <wizard
+            name="Backbone Model Page"
+            icon="icons/sample.gif"
+            category="ReactBuilder"
+            class="reactbuilder.wizards.backbone.BackboneNewModelWizard"
+            id="reactbuilder.wizards.backbone.BackboneNewModelWizard">
+      </wizard>
+   </extension>
+   
+   <!--This is for adding more Models outside of the main project wizard -->
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            id="Oleng3.contribution1">
+         <menu
+               label="ReactBuilder"
+               path="additions"
+               id="Oleng3.menu1">
+            <separator name="group1"> </separator>
+            <separator name="group2"> </separator>
+         </menu>
+         <action
+               label="Add New Model.."
+               class="reactbuilder.wizards.backbone.actions.AddNewModelAction"
+               menubarPath="Oleng3.menu1/group1"
+               enablesFor="1"
+               id="Oleng3.newAction">
+         </action>
+         <action
+               label="Add New SubModel.."
+               class="reactbuilder.wizards.backbone.actions.AddNewSubModelAction"
+               menubarPath="Oleng3.menu1/group2"
+               enablesFor="1"
+               id="Oleng3.newSubModelAction">
+         </action>
+         <action
+               label="Add New Presenter.."
+               class="reactbuilder.wizards.backbone.actions.AddNewPresenterAction"
+               menubarPath="Oleng3.menu1/group2"
+               enablesFor="1"
+               id="Oleng3.newPresenter">
+         </action>
+         <action
+               label="Add New Wizard-Type Presenter.."
+               class="reactbuilder.wizards.backbone.actions.AddNewWizardTypePresenterAction"
+               menubarPath="Oleng3.menu1/group3"
+               enablesFor="1"
+               id="Oleng3.newWizardTypePresenter">
+         </action>
+         <!--action
+               label="Add Third Party JS Lib"
+               class="reactbuilder.wizards.backbone.actions.AddNewJSLibAction"
+               menubarPath="Oleng3.menu1/group2"
+               enablesFor="1"
+               id="Oleng3.newJSLib">
+         </action-->
+      </objectContribution>      
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            id="Oleng3.contribution1">
+         <menu
+               label="ReactBuilder Node"
+               path="additions"
+               id="Oleng3.menu1">
+            <separator name="group1"> </separator>
+            <separator name="group2"> </separator>
+         </menu>
+         <action
+               label="Run npm install"
+               class="reactbuilder.wizards.backbone.actions.RunNpmInstall"
+               menubarPath="Oleng3.menu1/group1"
+               enablesFor="1"
+               id="Oleng3.newAction">
+         </action>         
+      </objectContribution>      
+   </extension>
+
+</plugin>
